@@ -4,7 +4,7 @@
 
 <p>Sistema de News para websites.</p>
 
-<p>#Funcionalidades:</p>
+<p>###Funcionalidades:</p>
 
 <p>->Lista com News de 3 tipos(Noticia, Atualização, Evento.).</p>
 
@@ -16,7 +16,7 @@
 
 <p>Obs: Somente uma conta Admin poderá cadastrar um usuario novo e excluir News.</p>
 
-<p>#Tecnologias:</p>
+<p>###Tecnologias:</p>
 
 <p>->PHP</p>
 
