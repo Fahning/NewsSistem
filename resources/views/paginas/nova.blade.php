@@ -7,8 +7,8 @@
             <div class="card">
                 <div class="card-header bg-dark text-white">
                     <div class="row">
-                        <div class="col-md-6"><h3>Adicionar</h3></div>
-                        <div class="col-md-6 text-right"><a href="{{ route('painel') }}" class="btn btn-danger">Voltar</a></div>
+                        <div class="col-6"><h3>Adicionar</h3></div>
+                        <div class="col-6 text-right"><a href="{{ route('painel') }}" class="btn btn-danger">Voltar</a></div>
                     </div>
                 </div>
 

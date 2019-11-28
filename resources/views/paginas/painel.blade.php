@@ -8,9 +8,9 @@
             <div class="card">
                 <div class="card-header bg-dark text-white">
                     <div class="row">
-                        <div class="col-md-6"><h3>Noticias</h3></div>
+                        <div class="col-6"><h3>Noticias</h3></div>
                         @if (Auth::check())
-                        <div class="col-md-6 text-right"><a href="{{ route('adiciona') }}" class="btn btn-success">Nova Noticia</a></div>    
+                        <div class="col-6 text-right"><a href="{{ route('adiciona') }}" class="btn btn-success">Nova Noticia</a></div>    
                         @endif 
                     </div>              
                 </div>
@@ -27,25 +27,28 @@
                           
                                 </script>
                                 <tr id='tupla'>
-                                    <td  onClick="chama('#modal{{$noticia->id}}');">
-                                        @if ($noticia->type == 1)
-                                            <div><span class="tipoNoticia">Noticia</span></div>
-                                        @elseif($noticia->type == 2 )
-                                            <div><span class="tipoUpdate">Atualização</span></div>
-                                        @elseif ($noticia->type == 3 )
-                                            <div><span class="tipoEvento">Evento</span></div>
-                                        @endif
-                                    </td>
+                                    <div class="col-md-12 " id="flagNews">
+                                        <td class="d-none d-md-block" onClick="chama('#modal{{$noticia->id}}');">
+                                            @if ($noticia->type == 1)
+                                                <div><span class="tipoNoticia">Noticia</span></div>
+                                            @elseif($noticia->type == 2 )
+                                                <div><span class="tipoUpdate">Atualização</span></div>
+                                            @elseif ($noticia->type == 3 )
+                                                <div><span class="tipoEvento">Evento</span></div>
+                                            @endif
+                                        </td>
+                                    </div>
                                     <th style="color:blueviolet" onClick="chama('#modal{{$noticia->id}}');">{{$noticia->title}}</th>
-                                    <td>{{ \Carbon\Carbon::parse($noticia->created_at, 'pt_BR')->format('d/M')}}</td>                                                                
-                                    @if (Auth::check())
-                                        @if (Auth::user()->nivel == 1)
-                                            <td style="padding-right: 1px; padding-lef: 1px with:20px" ><a id="btn-edit" href="{{ route('editar', $noticia->id) }}" class="btn btn-success"><i class="fa fa-edit"></i></a></td>
-                                            <td style="padding-left: 1px; padding-right: 1px with:20px" >   <a href="{{route('excluir', $noticia->id)}}" class="btn btn-success"><i class="fa fa-trash"></i></a></td>
-                                            
-                                        @elseif (Auth::user()->nivel == 2)
-                                            <td ><a href="{{ route('editar', $noticia->id) }}" class="btn btn-success"><i class="fa fa-edit"></i></a></td>
-                                        @endif                             
+                                    <td class="d-none d-md-block text-right">{{ \Carbon\Carbon::parse($noticia->created_at, 'pt_BR')->format('d/M')}}</td>                                                                
+                                    @if (Auth::check())                                    
+                                            @if (Auth::user()->nivel == 1)
+                                                <td class="text-right">
+                                                    <a id="btn-edit" href="{{ route('editar', $noticia->id) }}" class="btn btn-success"><i class="fa fa-edit"></i></a>
+                                                    <a href="{{route('excluir', $noticia->id)}}" class="btn btn-success"><i class="fa fa-trash"></i></a>
+                                                </td>                                             
+                                            @elseif (Auth::user()->nivel == 2)
+                                                <td><a href="{{ route('editar', $noticia->id) }}" class="btn btn-success"><i class="fa fa-edit"></i></a></td>
+                                            @endif                                                                    
                                     @endif
                                 </tr>
                                 <div class="modal fade bd-example-modal-lg" id="modal{{$noticia->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">

@@ -81,11 +81,13 @@
                             </div>
                         </div>
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="col-6"><a class="btn btn-info" href="{{ route('painel') }}">Voltar</a></div>
+                            <div class="col-6 offset-md-4 text-right">
+                                <button type="submit" class="btn btn-success">
                                     {{ __('Register') }}
                                 </button>
                             </div>
+                            
                         </div>
                     </form>
                 </div>
